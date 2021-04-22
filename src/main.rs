@@ -10,30 +10,30 @@ fn main(){
     println!("[Debug] The secret number is: {}", secret_number);
 
     loop{
-    println!("Input your guess:");
+        println!("Input your guess:");
 
-    let mut guess = String::new();
+        let mut guess = String::new();
 
-    //let foo = 5; //immutable
-    //let mut foo = 5; //mutable
+        //let foo = 5; //immutable
+        //let mut foo = 5; //mutable
 
-    io::stdin().read_line(&mut guess)
-        .expect("Error occurred."); //io::Result
+        io::stdin().read_line(&mut guess)
+            .expect("Error occurred."); //io::Result
     
-    let guess: u32 = match guess.trim().parse(){
-        Ok(num) => num,
-        Err(_) => continue,
-    };
+        let guess: u32 = match guess.trim().parse(){
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
-    println!("You guessed:{}",guess);
+        println!("You guessed:{}",guess);
 
-    match guess.cmp(&secret_number){
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => {
-            println!("YATTAZE");
-            break;
+        match guess.cmp(&secret_number){
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("YATTAZE");
+                break;
+            }
         }
-    }
     }
 }
