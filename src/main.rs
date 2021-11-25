@@ -1,4 +1,5 @@
 use std::io;
+use std::io::Write;
 use std::cmp::Ordering;
 use rand::Rng;
 
@@ -10,7 +11,8 @@ fn main(){
     println!("[Debug] The secret number is: {}", secret_number);
 
     loop{
-        println!("Input your guess:");
+        print!("Input your guess:");
+        io::stdout().flush().unwrap();
 
         let mut guess = String::new();
 
